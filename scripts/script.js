@@ -95,3 +95,21 @@ function pause() {
 		btpausa.innerHTML = "Continuar";
 	}
 }
+
+function loopPrincipal() {
+//atualizar valores
+moverSnake();
+desenhar();
+}
+
+function moverSnake() {
+	//Mover todos os nodos, exceto cabeça
+	for (i = nodos.length - 1; i > 0; i--) {
+	nodos[i].x = nodos[i-1].x;
+	nodos[i].y = nodos[i-1].y;
+	nodos[i].direc = nodos[i-1].direc;
+	}
+	
+	//Executa movimento da cabeça
+	nodos[0].Mover();
+}
