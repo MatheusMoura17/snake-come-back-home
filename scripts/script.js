@@ -116,8 +116,29 @@ function moverSnake() {
 	nodos[i].direc = nodos[i-1].direc;
 	}
 	
+	//Se lista de comandos não estiver vazia
+	if (proxDirec.length > 0) {
+		//Se há uma direção diferente da atual
+		if (nodos[0].direc != proxDirec[0]) {
+			//Alterar a direção
+			nodos[0].direc = proxDirec[0];
+		}
+	}
+	
 	//Executa movimento da cabeça
 	nodos[0].Mover();
+	
+	//Enquanto houverem comandos na lista
+	while (proxDirec.length > 0) {
+		//Se o comando é redundante
+		if (proxDirec[0] == nodos[0].direc) {
+			//Remove o comando do inicio da lista
+			proxDirec.shift();
+		} 
+		else
+		//Se não for, para a repetição
+		break;
+	}
 }
 
 function detectarColisoes() {
