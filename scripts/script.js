@@ -15,8 +15,13 @@ criarGrid();
 newGame();
 
 function criarGrid() {
- gx = Math.floor((canvas.width - distance) / (width + distance));
- gy = Math.floor((canvas.height - distance) / (width + distance));
- bordax = gx * (distance + width) + distance;
- borday = gy * (distance + width) + distance;
+	gx = Math.floor((canvas.width - distance) / (width + distance));
+	gy = Math.floor((canvas.height - distance) / (width + distance));
+	bordax = gx * (distance + width) + distance;
+	borday = gy * (distance + width) + distance;
 }
+
+function newGame() {
+	btPause.innerHTML = "Iniciar";
+	btPause.disabled = false;
+	desenhar();
