@@ -21,6 +21,9 @@ var bordax, borday; //Posições das bordas
 var nodos = new Array();
 nodos.length = 0;
 
+//Eventos
+document.onkeydown = onKD;
+
 //Iniciando o jogo
 criarGrid();
 newGame();
@@ -133,3 +136,24 @@ function executarGameOver() {
 	btPausa.disabled = true;
 	if (rodando)
 		pausa();
+}
+
+function onKD(evt) {
+	switch (evt.keyCode) {
+		case 37: //esquerda
+			nodos[0].direc = left;
+			break;
+			
+		case 38: //cima
+			nodos[0].direc = up;
+			break;
+			
+		case 39: //direita
+			nodos[0].direc = right;
+			break;
+			
+		case 40: //baixo
+			nodos[0].direc = down;
+			break;
+	}
+}
