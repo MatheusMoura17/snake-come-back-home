@@ -6,7 +6,7 @@ var btPause = document.GetElementByID("btPause");
 //Informações sobre o grid
 var gx = 0; //Número de quadros em X
 var gy = 0; //Número de quadros em Y
-var width = 20; //Largura dos quadros
+var largura = 50; //Largura dos quadros
 var distance = 5; //Distância entre os quadros
 var bordax, borday; //Posições das bordas
 
@@ -15,10 +15,10 @@ criarGrid();
 newGame();
 
 function criarGrid() {
-	gx = Math.floor((canvas.width - distance) / (width + distance));
-	gy = Math.floor((canvas.height - distance) / (width + distance));
-	bordax = gx * (distance + width) + distance;
-	borday = gy * (distance + width) + distance;
+	gx = Math.floor((canvas.width - distance) / (largura + distance));
+	gy = Math.floor((canvas.height - distance) / (largura + distance));
+	bordax = gx * (distance + largura) + distance;
+	borday = gy * (distance + largura) + distance;
 }
 
 function newGame() {
