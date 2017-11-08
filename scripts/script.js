@@ -97,9 +97,10 @@ function pause() {
 }
 
 function loopPrincipal() {
-//atualizar valores
-moverSnake();
-desenhar();
+	//atualizar valores
+	moverSnake();
+	detectarColisoes();
+	desenhar();
 }
 
 function moverSnake() {
@@ -112,4 +113,11 @@ function moverSnake() {
 	
 	//Executa movimento da cabeça
 	nodos[0].Mover();
+}
+
+function detectarColisoes() {
+	//Colisão da cabeça com alguma parede
+	if ((nodos[0].x < 0) || (nodos[0].x >= gx) || (nodos[0].y < 0) || (nodos[0].y >= gy)) {
+	executarGameOver(); //Game Over!
+	}
 }
