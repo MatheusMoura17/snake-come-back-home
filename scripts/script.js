@@ -4,6 +4,8 @@ var xfruta;
 var yfruta;
 var relogio;
 var intervalo;
+var proxDirec = new Array();
+proxDirec.length = 0;
 
 // Referências dos objetos
 var canvas = document.getElementById("screen");
@@ -142,18 +144,22 @@ function onKD(evt) {
 	switch (evt.keyCode) {
 		case 37: //esquerda
 			nodos[0].direc = left;
+			proxDirec.push(left);
 			break;
 			
 		case 38: //cima
 			nodos[0].direc = up;
+			proxDirec.push(up);
 			break;
 			
 		case 39: //direita
 			nodos[0].direc = right;
+			proxDirec.push(right);
 			break;
 			
 		case 40: //baixo
 			nodos[0].direc = down;
+			proxDirec.push(down);
 			break;
 	}
 }
