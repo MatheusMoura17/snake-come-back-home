@@ -128,3 +128,8 @@ function detectarColisoes() {
 		}
 	}
 }
+
+function executarGameOver() {
+	btPausa.disabled = true;
+	if (rodando)
+		pausa();
