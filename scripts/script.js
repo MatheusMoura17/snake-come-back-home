@@ -6,7 +6,7 @@ var btPause = document.GetElementByID("btPause");
 //Informações sobre o grid
 var gx = 0; //Número de quadros em X
 var gy = 0; //Número de quadros em Y
-var largura = 50; //Largura dos quadros
+var largura = 20; //Largura dos quadros
 var distance = 5; //Distância entre os quadros
 var bordax, borday; //Posições das bordas
 
