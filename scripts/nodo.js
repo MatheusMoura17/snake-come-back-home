@@ -11,7 +11,7 @@ function Nodo(px, py, dir) {
 	this.y = py;
 	this.direc = dir;
 	
-	this.Move = function() {
+	this.Mover = function() {
 		switch (this.direc) {
 			case up:
 				this.y -= 1;
