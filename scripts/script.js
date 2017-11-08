@@ -120,4 +120,11 @@ function detectarColisoes() {
 	if ((nodos[0].x < 0) || (nodos[0].x >= gx) || (nodos[0].y < 0) || (nodos[0].y >= gy)) {
 	executarGameOver(); //Game Over!
 	}
+	
+	//Colisão da cabeça com o corpo
+	for (i = 1; i < nodos.length; i++) {
+		if ((nodos[0].x == nodos[i].x) && (nodos[0].y == nodos[i].y)) {
+		executarGameOver(); //Game Over!
+		}
+	}
 }
