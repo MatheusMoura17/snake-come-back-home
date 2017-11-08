@@ -1,3 +1,8 @@
+//Informações sobre estado atual do jogo
+var rodando = false;
+var xfruta;
+var yfruta;
+
 // Referências dos objetos
 var canvas = document.getElementById("screen");
 var context = canvas.getContext("2d");
@@ -26,6 +31,9 @@ function criarGrid() {
 }
 
 function newGame() {
+	xfruta = gx - 1;
+	yfruta = gy - 1;
+	
 	var xcenter = Math.floor(gx / 2);
 	var ycenter = Math.floor(gy / 2);
 	nodos.length = 0;
@@ -57,5 +65,14 @@ function desenhar() {
 	xi = distance + nodos[i].x * (largura + distance);
 	yi = distance + nodos[i].y * (largura + distance);
 	context.fillRect(xi, yi, largura, largura);
+	
+	//Desenhar a fruta
+	context.fillStyle = "#FF0000";
+	xi = distance + (xfruta * (largura + distance)) + Math.floor(largura / 2);
+	yi = distance + (yfruta * (largura + distance)) + Math.floor(largura / 2);
+	context.beginPath();
+	context.arc(xi, yi, distance, 0, Math.PI * 2, true);
+	context.closePath();
+	context.fill();
 	}
 }	
