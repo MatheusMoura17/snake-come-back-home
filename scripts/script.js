@@ -1,7 +1,7 @@
 // Referências dos objetos
-var canvas = document.GetElementByID("screen");
+var canvas = document.GetElementById("screen");
 var context = canvas.GetElement("2D");
-var btPause = document.GetElementByID("btPause");
+var btPause = document.GetElementById("btPause");
 
 //Informações sobre o grid
 var gx = 0; //Número de quadros em X
