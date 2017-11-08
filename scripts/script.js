@@ -2,6 +2,8 @@
 var rodando = false;
 var xfruta;
 var yfruta;
+var relogio;
+var intervalo;
 
 // Referências dos objetos
 var canvas = document.getElementById("screen");
@@ -31,6 +33,11 @@ function criarGrid() {
 }
 
 function newGame() {
+	if (rodando) {
+		pausa();
+	}
+	
+	intervalo = 200;
 	xfruta = gx - 1;
 	yfruta = gy - 1;
 	
@@ -62,17 +69,29 @@ function desenhar() {
 	//Desenhar a Snake
 	context.fillStyle = "#00FF00";
 	for (i = 0; i < nodos.length; i++) {
-	xi = distance + nodos[i].x * (largura + distance);
-	yi = distance + nodos[i].y * (largura + distance);
-	context.fillRect(xi, yi, largura, largura);
+		xi = distance + nodos[i].x * (largura + distance);
+		yi = distance + nodos[i].y * (largura + distance);
+		context.fillRect(xi, yi, largura, largura);
 	
-	//Desenhar a fruta
-	context.fillStyle = "#FF0000";
-	xi = distance + (xfruta * (largura + distance)) + Math.floor(largura / 2);
-	yi = distance + (yfruta * (largura + distance)) + Math.floor(largura / 2);
-	context.beginPath();
-	context.arc(xi, yi, distance, 0, Math.PI * 2, true);
-	context.closePath();
-	context.fill();
+		//Desenhar a fruta
+		context.fillStyle = "#FF0000";
+		xi = distance + (xfruta * (largura + distance)) + Math.floor(largura / 2);
+		yi = distance + (yfruta * (largura + distance)) + Math.floor(largura / 2);
+		context.beginPath();
+		context.arc(xi, yi, distance, 0, Math.PI * 2, true);
+		context.closePath();
+		context.fill();
 	}
 }	
+
+function pausa() {
+	rodando = !rodando;
+	if (rodando) {
+		btPausa.innerHTML = "Pausar";
+		relogio = setInterval("loopPrincipal()" , intervalo);
+	}
+	else {
+		clearInterval(relogio);
+		btPausa.innerHTML = "Continuar";
+	}
+}
