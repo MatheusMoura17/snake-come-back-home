@@ -8,7 +8,7 @@ var intervalo;
 // Referências dos objetos
 var canvas = document.getElementById("screen");
 var context = canvas.getContext("2d");
-var btpause = document.getElementById("btPause");
+var btpausa = document.getElementById("btPause");
 
 //Informações sobre o grid
 var gx = 0; //Número de quadros em X
@@ -49,8 +49,8 @@ function newGame() {
 	nodos.push(new Nodo(xcenter, ycenter, down));
 	nodos.push(new Nodo(xcenter, ycenter - 1, down));
 	nodos.push(new Nodo(xcenter, ycenter - 2, down));
-	btpause.innerHTML = "Iniciar";
-	btpause.disabled = false;
+	btpausa.innerHTML = "Iniciar";
+	btpausa.disabled = false;
 	desenhar();
 }
 
@@ -84,14 +84,14 @@ function desenhar() {
 	}
 }	
 
-function pausa() {
+function pause() {
 	rodando = !rodando;
 	if (rodando) {
-		btPausa.innerHTML = "Pausar";
+		btpausa.innerHTML = "Pausar";
 		relogio = setInterval("loopPrincipal()" , intervalo);
 	}
 	else {
 		clearInterval(relogio);
-		btPausa.innerHTML = "Continuar";
+		btpausa.innerHTML = "Continuar";
 	}
 }
