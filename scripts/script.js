@@ -25,3 +25,17 @@ function newGame() {
 	btPause.innerHTML = "Iniciar";
 	btPause.disabled = false;
 	desenhar();
+}
+
+function desenhar() {
+	//Variáveis auxiliares para desenhar
+	var xi, yi;
+	
+	//Limpar a tela
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	
+	//Desenhar bordas
+	context.fillStyle = "#888888";
+	context.fillRect(bordax, 0, canvas.width - 1, canvas.height - 1);
+	context.fillRect(0, borday, canvas.width - 1, canvas.height - 1);
+} 
