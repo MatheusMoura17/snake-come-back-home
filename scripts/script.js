@@ -6,6 +6,7 @@ var relogio;
 var intervalo;
 var proxDirec = new Array();
 proxDirec.length = 0;
+var rotacao = 0;
 
 // Referências dos objetos
 var canvas = document.getElementById("screen");
@@ -85,7 +86,12 @@ function desenhar() {
 		context.fillStyle = "#FF0000";
 		xi = distance + (xfruta * (largura + distance)) + Math.floor(largura / 2);
 		yi = distance + (yfruta * (largura + distance)) + Math.floor(largura / 2);
+		rotacao += Math.PI * 0.1;
+		if (rotacao > Math.PI * 2)
+			rotacao -= Math.PI * 2;
+		var r = rotacao + (Math.PI * 1.5);
 		context.beginPath();
+		context.arc(xi, yi, distancia, r, rotacao, true);
 		context.arc(xi, yi, distance, 0, Math.PI * 2, true);
 		context.closePath();
 		context.fill();
