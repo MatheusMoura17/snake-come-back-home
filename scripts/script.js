@@ -156,6 +156,33 @@ function detectarColisoes() {
 		executarGameOver(); //Game Over!
 		}
 	}
+	
+	//Comer a fruta
+	if ((nodos[0].x == xfruta) && (nodos[0].y == yfruta)) {
+		sndComer();
+		var ultimo = nodos.length - 1;
+		nodos.push(new Nodo(nodos[ultimo].x, nodos[ultimo].y, nodos[ultimo].direc));
+		var novoultimo = ultimo + 1;
+		
+		switch (nodos[ultimo].direc) {
+			case down:
+				nodos[novoultimo].y -= 1;
+				break;
+				
+			case right:
+				nodos[novoultimo].x -= 1;
+				break;
+				
+			case up:
+				nodos[novoultimo].y += 1;
+				break;
+				
+			case left:
+				nodos[novoultimo].x += 1;
+				break;
+		}
+novaPosFruta();
+}
 }
 
 function executarGameOver() {
