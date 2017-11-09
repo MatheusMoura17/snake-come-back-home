@@ -11,6 +11,9 @@ proxDirec.length = 0;
 var canvas = document.getElementById("screen");
 var context = canvas.getContext("2d");
 var btpausa = document.getElementById("btPause");
+var sndcomer1 = document.getElementById("comer1");
+var sndcomer2 = document.getElementById(“comer2");
+var sndgameover = document.getElementById("gameover");
 
 //Informações sobre o grid
 var gx = 0; //Número de quadros em X
@@ -156,6 +159,7 @@ function detectarColisoes() {
 }
 
 function executarGameOver() {
+	sndgameover.play();
 	btPausa.disabled = true;
 	if (rodando)
 		pausa();
@@ -183,4 +187,11 @@ function onKD(evt) {
 			proxDirec.push(down);
 			break;
 	}
+}
+
+function sndComer() { //Reproduzir som aleatório de comer
+	if (Math.random() < 0.8)
+		sndcomer1.play();
+	else
+	sndcomer2.play();
 }
