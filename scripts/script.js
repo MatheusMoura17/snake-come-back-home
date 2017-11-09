@@ -195,3 +195,19 @@ function sndComer() { //Reproduzir som aleatório de comer
 	else
 	sndcomer2.play();
 }
+
+function novaPosFruta() { //Determinar uma nova posição para a fruta
+	do {
+		xfruta = Math.floor(Math.random() * nx);
+		yfruta = Math.floor(Math.random() * ny);
+	} while (colisaoFruta() == true);
+}
+
+function colisaoFruta() { //Verificar se posição da fruta colide com corpo da snake
+	for (i = 0; i < nodos.length; i++) {
+		if ((xfruta == nodos[i].x) && (yfruta == nodos[i].y)) {
+			return true;
+		}
+	}
+	return false;
+}
