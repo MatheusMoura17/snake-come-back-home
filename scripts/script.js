@@ -15,6 +15,9 @@ var btpausa = document.getElementById("btPause");
 var sndcomer1 = document.getElementById("comer1");
 var sndcomer2 = document.getElementById("comer2");
 var sndgameover = document.getElementById("gameover");
+var snakeHead=document.getElementById("snakeHead");
+var snakeNode=document.getElementById("snakeNode");
+var snakeTale=document.getElementById("snakeTale");
 
 //Informações sobre o grid
 var gx = 0; //Número de quadros em X
@@ -75,11 +78,17 @@ function desenhar() {
 	context.fillRect(0, borday, canvas.width - 1, canvas.height - 1);
 	
 	//Desenhar a Snake
-	context.fillStyle = "#00FF00";
 	for (i = 0; i < nodos.length; i++) {
+		var graphic=snakeHead;
+		if(i>0 && i<nodos.length-1)
+			graphic=snakeNode;
+		else if(i==nodos.length-1)
+			graphic=snakeTale;
+
 		xi = distance + nodos[i].x * (largura + distance);
 		yi = distance + nodos[i].y * (largura + distance);
-		context.fillRect(xi, yi, largura, largura);
+		//context.fillRect(xi, yi, largura, largura);
+		context.drawImage(graphic,xi,yi,largura,largura);
 	
 		//Desenhar a fruta
 		context.fillStyle = "#FF0000";
@@ -222,10 +231,10 @@ function onKD(evt) {
 }
 
 function sndComer() { //Reproduzir som aleatório de comer
-	if (Math.random() < 0.8)
-		sndcomer1.play();
-	else
-	sndcomer2.play();
+	//if (Math.random() < 0.8)
+	//	sndcomer1.play();
+	//else
+	sndcomer1.play();
 }
 
 function novaPosFruta() { //Determinar uma nova posição para a fruta
