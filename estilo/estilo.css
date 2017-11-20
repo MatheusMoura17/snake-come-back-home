@@ -1,8 +1,25 @@
 #screen {
 	background:url("../imagens/game/background.png");
 	background-size: 700px 480px;
+	width: 640px;
+	height: 480px;
 	border-style: solid;
 	border-color: #888888;
+}
+
+.main{
+	width: 640px;
+	height: 480px;
+	margin: 0 auto;
+	margin-top: 70px;
+}
+
+.right-buttons{
+	float: right;
+}
+
+.hiddenElements{
+	display: none;
 }
 
 body {

@@ -71,7 +71,6 @@ function newGame() {
 	nodos.push(new Nodo(xcenter, ycenter - 2, down));
 	btpausa.innerHTML = "Iniciar";
 	btpausa.disabled = false;
-	desenhar();
 }
 
 function desenhar() {
