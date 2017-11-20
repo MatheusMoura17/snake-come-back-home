@@ -91,7 +91,7 @@ function desenhar() {
 			rotacao -= Math.PI * 2;
 		var r = rotacao + (Math.PI * 1.5);
 		context.beginPath();
-		context.arc(xi, yi, distancia, r, rotacao, true);
+		context.arc(xi, yi, distance, r, rotacao, true);
 		context.arc(xi, yi, distance, 0, Math.PI * 2, true);
 		context.closePath();
 		context.fill();
