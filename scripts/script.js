@@ -47,8 +47,7 @@ function newGame() {
 	}
 	
 	intervalo = 200;
-	xfruta = gx - 1;
-	yfruta = gy - 1;
+	novaPosFruta();
 	
 	var xcenter = Math.floor(gx / 2);
 	var ycenter = Math.floor(gy / 2);
@@ -187,8 +186,8 @@ function detectarColisoes() {
 				nodos[novoultimo].x += 1;
 				break;
 		}
-novaPosFruta();
-}
+		novaPosFruta();
+	}
 }
 
 function executarGameOver() {
@@ -231,8 +230,8 @@ function sndComer() { //Reproduzir som aleatório de comer
 
 function novaPosFruta() { //Determinar uma nova posição para a fruta
 	do {
-		xfruta = Math.floor(Math.random() * nx);
-		yfruta = Math.floor(Math.random() * ny);
+		xfruta = Math.floor(Math.random() * gx);
+		yfruta = Math.floor(Math.random() * gy);
 	} while (colisaoFruta() == true);
 }
 
