@@ -43,7 +43,7 @@ function criarGrid() {
 
 function newGame() {
 	if (rodando) {
-		pausa();
+		pause();
 	}
 	
 	intervalo = 200;
@@ -193,9 +193,9 @@ novaPosFruta();
 
 function executarGameOver() {
 	sndgameover.play();
-	btPausa.disabled = true;
+	btpausa.disabled = true;
 	if (rodando)
-		pausa();
+		pause();
 }
 
 function onKD(evt) {
