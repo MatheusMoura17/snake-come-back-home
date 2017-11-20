@@ -1,5 +1,6 @@
 #screen {
-	background-color: #000000;
+	background:url("../imagens/game/background.png");
+	background-size: 700px 480px;
 	border-style: solid;
 	border-color: #888888;
 }
