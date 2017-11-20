@@ -15,9 +15,18 @@ var btpausa = document.getElementById("btPause");
 var sndcomer1 = document.getElementById("comer1");
 var sndcomer2 = document.getElementById("comer2");
 var sndgameover = document.getElementById("gameover");
-var snakeHead=document.getElementById("snakeHead");
+
+var snakeHeadLeft=document.getElementById("snakeHeadLeft");
+var snakeHeadRight=document.getElementById("snakeHeadRight");
+var snakeHeadUp=document.getElementById("snakeHeadUp");
+var snakeHeadBottom=document.getElementById("snakeHeadBottom");
+
 var snakeNode=document.getElementById("snakeNode");
-var snakeTale=document.getElementById("snakeTale");
+
+var snakeTaleLeft=document.getElementById("snakeTaleLeft");
+var snakeTaleRight=document.getElementById("snakeTaleRight");
+var snakeTaleUp=document.getElementById("snakeTaleUp");
+var snakeTaleBottom=document.getElementById("snakeTaleBottom");
 
 //Informações sobre o grid
 var gx = 0; //Número de quadros em X
@@ -79,11 +88,33 @@ function desenhar() {
 	
 	//Desenhar a Snake
 	for (i = 0; i < nodos.length; i++) {
-		var graphic=snakeHead;
-		if(i>0 && i<nodos.length-1)
-			graphic=snakeNode;
-		else if(i==nodos.length-1)
-			graphic=snakeTale;
+		var graphic=snakeNode;
+		if(i==0){
+			if(nodos[i].direc==up)		
+				graphic=snakeHeadUp;
+			else if(nodos[i].direc==down)
+				graphic=snakeHeadBottom;
+			else if(nodos[i].direc==right)
+				graphic=snakeHeadRight;
+			else if(nodos[i].direc==left)
+				graphic=snakeHeadLeft;
+
+		}else if(i==nodos.length-1){
+			if(nodos[i].direc==up)		
+				graphic=snakeTaleUp;
+			else if(nodos[i].direc==down)
+				graphic=snakeTaleBottom;
+			else if(nodos[i].direc==right)
+				graphic=snakeTaleRight;
+			else if(nodos[i].direc==left)
+				graphic=snakeTaleLeft;
+		}
+
+
+		//if(i>0 && i<nodos.length-1)
+		//	graphic=snakeNode;
+		//else if(i==nodos.length-1)
+		//	graphic=snakeTale;
 
 		xi = distance + nodos[i].x * (largura + distance);
 		yi = distance + nodos[i].y * (largura + distance);
