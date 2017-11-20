@@ -13,7 +13,7 @@ var canvas = document.getElementById("screen");
 var context = canvas.getContext("2d");
 var btpausa = document.getElementById("btPause");
 var sndcomer1 = document.getElementById("comer1");
-var sndcomer2 = document.getElementById(“comer2");
+var sndcomer2 = document.getElementById("comer2");
 var sndgameover = document.getElementById("gameover");
 
 //Informações sobre o grid
