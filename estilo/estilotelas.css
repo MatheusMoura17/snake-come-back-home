@@ -1,5 +1,5 @@
 body {
-	margin:center;
+	margin:0;
 	overflow: hidden;
 }
 
@@ -17,3 +17,8 @@ body {
 	height: 480px;
 	margin: 0 auto;
 	margin-top: 70px;
+}
+
+.hiddenfigures{
+	display: none;
+} 
