@@ -22,34 +22,34 @@ function atualizarPlanoDeFundo() {
     canvas.setAttribute("height", altura);
 }
 	
-function backgroundMenu() {
+/*function backgroundMenu() {
     var img;
     var x = parseInt((largura / 2) - (larguramenu / 2));
     var y = parseInt((altura / 2) - (alturamenu / 2));
 	img=background;
     ctx.drawImage(img, x, y, larguramenu, alturamenu);
-}
+}*/
 
 function desenharMenuPrincipal() {
-    var y=parseInt((altura / 2) - (alturamenu / 2));
-	var x=parseInt((largura / 2) - (larguramenu / 2));
+    var y=parseInt((altura / 2) - (canvas.height / 2));
+	var x=parseInt((largura / 2) - (canvas.width / 2));
     var img1;
 	var	img2;
 	var	img3;
 
     img1=title;
-    ctx.drawImage(img1, x, y);
+    ctx.drawImage(img1, x, y, 1370, 300);
 
     img2=iniciar;
-    ctx.drawImage(img2, x, y + 100);
+    ctx.drawImage(img2, x + 200, y + 350, 300, 250);
 	
 	img3=sair;
-	ctx.drawImage(img3, x, y + 200);
+	ctx.drawImage(img3, x + 880, y + 350, 300, 250);
 
 }
 
 function menuPrincipal() {
 	atualizarPlanoDeFundo();
-	backgroundMenu();
+	//backgroundMenu();
 	desenharMenuPrincipal();
 }
