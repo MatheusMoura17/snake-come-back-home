@@ -34,10 +34,10 @@ function desenharTelaDeFaseConcluida() {
 	var	img2;
 
     img1=title1;
-    ctx.drawImage(img1, x, y, 1280, 200);
+    ctx.drawImage(img1, x+30, y, 1320, 300);
 	
 	img2=go;
-    ctx.drawImage(img2, x + 550, y + 500, 100, 150);
+    ctx.drawImage(img2, x + 600, y + 400, 200, 200);
 	
 
 }
