@@ -1,4 +1,19 @@
 body {
-	margin:0;
+	margin:center;
 	overflow: hidden;
 }
+
+#screen {
+	background:url("../imagens/game/tela.png");
+	background-size: 700px 480px;
+	width: 640px;
+	height: 480px;
+	border-style: solid;
+	border-color: black;
+}
+
+.main{
+	width: 640px;
+	height: 480px;
+	margin: 0 auto;
+	margin-top: 70px;
