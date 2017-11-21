@@ -11,11 +11,18 @@ var title=document.getElementById("title");
 var iniciar=document.getElementById("iniciar");
 var sair=document.getElementById("sair");
 
-window.onresize = function () {
-    MenuPrincipal();
-}
 
-function BackgroundMenu() {
+    menuPrincipal();
+
+
+function atualizarPlanoDeFundo() {
+    largura = window.innerWidth;
+    altura = window.innerHeight;
+    canvas.setAttribute("width", largura);
+    canvas.setAttribute("height", altura);
+}
+	
+function backgroundMenu() {
     var img;
     var x = parseInt((largura / 2) - (larguramenu / 2));
     var y = parseInt((altura / 2) - (alturamenu / 2));
@@ -23,7 +30,7 @@ function BackgroundMenu() {
     ctx.drawImage(img, x, y, larguramenu, alturamenu);
 }
 
-function DesenharMenuPrincipal() {
+function desenharMenuPrincipal() {
     var y=parseInt((altura / 2) - (alturamenu / 2));
 	var x=parseInt((largura / 2) - (larguramenu / 2));
     var img1;
@@ -37,11 +44,12 @@ function DesenharMenuPrincipal() {
     ctx.drawImage(img2, x, y + 100);
 	
 	img3=sair;
-	ctx.drawImage(img3, x, y + 200)
+	ctx.drawImage(img3, x, y + 200);
 
 }
 
-function MenuPrincipal() {
-	BackgroundMenu()
-	DesenharMenuPrincipal();
+function menuPrincipal() {
+	atualizarPlanoDeFundo();
+	backgroundMenu();
+	desenharMenuPrincipal();
 }
