@@ -5,24 +5,55 @@ body {
 	background-size: cover;
 }
 
-.middle{
+.container-small{
 	width: 500px;
+}
+
+.container-big{
+	width: 900px;
+	margin-top: 100px;
+	background: #fff;
+}
+
+.left{
+	width: 440px;
+	float: left;
+}
+
+.right {
+	margin-left: 20px;
+	width: 440px;
+	float: right;
+}
+
+.divider{
+	position: absolute;
+	top: 50px;
+	left: calc(50% - 7px);
+}
+
+.middle{
 	margin:0 auto;
 	margin-top: 100px;
-	text-align: center;
 }
 
-.btn{
+.btn-back{
+	position: absolute;
+	left: 25px;
+	top: 25px;
+}
+
+.btn, .btn2{
 	background: none;
 	border: none;
-	margin-top: 100px;
-	margin-left: -25px;
-	animation: scaleBtn 1s infinite alternate;
-	-webkit-animation:scaleBtn 1s infinite linear alternate;
-	transform: scale(1,1);
 }
 
-.btn:hover{
+.btn-anim{
+	animation: scaleBtn 1s infinite alternate;
+	-webkit-animation:scaleBtn 1s infinite linear alternate;
+}
+
+.btn-anim:hover{
 	transform: scale(1,1);
 	animation: none;
 	-webkit-animation:none;
@@ -33,25 +64,10 @@ body {
 	height: 100px;
 }
 
-#screen {
-	background:url("../imagens/game/tela.png");
-	background-size: 700px 480px;
-	width: 640px;
-	height: 480px;
-	border-style: solid;
-	border-color: black;
-} 
-
-.main{
-	width: 640px;
-	height: 480px;
-	margin: 0 auto;
-	margin-top: 70px;
+.btn2, .btn-img2{
+	width: 100px;
+	height: 123px;
 }
-
-.hiddenfigures{
-	display: none;
-} 
 
 @keyframes scaleBtn{
  0%{
