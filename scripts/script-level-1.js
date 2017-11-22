@@ -10,6 +10,7 @@ var rotacao = 0;
 var pontos=0;
 var velocidadeInicial=1;
 var killed;
+var pontosParaVencer=700;
 
 // Referências dos objetos
 var canvas = document.getElementById("screen");
@@ -19,7 +20,8 @@ var sndcomer2 = document.getElementById("comer2");
 var sndgameover = document.getElementById("gameover");
 
 var pontosTxt=document.getElementById("pontos");
-var bigPontosTxt=document.getElementById("bigPontos");
+var bigPontosTxt1=document.getElementById("bigPontos1");
+var bigPontosTxt2=document.getElementById("bigPontos2");
 var velocidadeTxt=document.getElementById("velocidade");
 
 var snakeHeadLeft=document.getElementById("snakeHeadLeft");
@@ -42,6 +44,7 @@ var fruta=coco;
 var playButton=document.getElementById("playButton");
 var pauseButton=document.getElementById("pauseButton");
 var gameOverPanel=document.getElementById("gameOverPanel");
+var gameWinPanel=document.getElementById("gameWinPanel");
 
 //Informações sobre o grid
 var gx = 0; //Número de quadros em X
@@ -93,6 +96,7 @@ function newGame() {
 	playButton.style.display="block";
 	pauseButton.style.display="none";
 	gameOverPanel.style.display="none";
+	gameWinPanel.style.display="none";
 
 	toggle();
 }
@@ -243,6 +247,9 @@ function detectarColisoes() {
 		atualizarPontos(100);
 		atualizarVelocidade(1);
 		sndComer();
+		if(pontos>=pontosParaVencer){
+			executarGameWin();
+		}
 		var ultimo = nodos.length - 1;
 		nodos.push(new Nodo(nodos[ultimo].x, nodos[ultimo].y, nodos[ultimo].direc));
 		var novoultimo = ultimo + 1;
@@ -275,8 +282,20 @@ function executarGameOver() {
 		clearInterval(relogio);
 		rodando=false;
 	}
-	bigPontosTxt.innerHTML="Pontos: "+pontos;
+	bigPontosTxt1.innerHTML="Pontos: "+pontos;
+	bigPontosTxt2.innerHTML="Pontos: "+pontos;
 	gameOverPanel.style.display="block";
+}
+
+function executarGameWin() {
+	killed=true;
+	if (rodando){
+		clearInterval(relogio);
+		rodando=false;
+	}
+	bigPontosTxt1.innerHTML="Pontos: "+pontos;
+	bigPontosTxt2.innerHTML="Pontos: "+pontos;
+	gameWinPanel.style.display="block";
 }
 
 function onKD(evt) {

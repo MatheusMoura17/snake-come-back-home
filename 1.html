@@ -13,7 +13,7 @@
 				Velocidade: <span id="velocidade">1.0</span>
 			</div>
 			<div class="left-panel">
-				Pontuação: <span id="pontos">0</span>
+				Pontuação: <span id="pontos">0</span> / 700
 			</div>
 		</div>
 
@@ -52,15 +52,23 @@
 		<button onclick="toggle();" style="position: absolute;right: 25px;
 	top: 25px;" class="btn" id="pauseButton"><img class="btn-img" src="imagens/game/pause.png"></button>
 
+		<div class="gameOver" id="gameWinPanel" style="display: none">
+			<img width="300" src="imagens/game/text2.png"><br />
+			<h2 style="color: #fff" id="bigPontos1">Pontos: 100</h2><br />
+			<button onclick="window.location='levels.html';" class="btn" style="margin-top: 10px;"><img class="btn-img" src="imagens/game/back.png"></button>
+			<button onclick="toggle();" style="margin-left:10px;margin-top: 10px;" class="btn"><img class="btn-img" src="imagens/game/restart.png"></button>
+			<button onclick="window.location='2.html'" style="margin-left:10px;margin-top: 10px;" class="btn"><img class="btn-img" src="imagens/game/play.png"></button>
+		</div>
+
 		<div class="gameOver" id="gameOverPanel" style="display: none">
 			<img width="300" src="imagens/game/text3.png"><br />
-			<h2 style="color: #fff" id="bigPontos">Pontos: 100</h2><br />
+			<h2 style="color: #fff" id="bigPontos2">Pontos: 100</h2><br />
 			<button onclick="window.location='levels.html';" class="btn" style="margin-top: 10px;"><img class="btn-img" src="imagens/game/back.png"></button>
 			<button onclick="toggle();" style="margin-left:10px;margin-top: 10px;" class="btn"><img class="btn-img" src="imagens/game/restart.png"></button>
 		</div>
 
 		<script type="text/javascript" src="scripts/nodo.js"> </script>
-		<script type="text/javascript" src="scripts/script.js"> </script>
+		<script type="text/javascript" src="scripts/script-level-1.js"> </script>
 
 	</body>
 
