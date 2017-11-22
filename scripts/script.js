@@ -9,11 +9,11 @@ proxDirec.length = 0;
 var rotacao = 0;
 var pontos=0;
 var velocidadeInicial=1;
+var killed;
 
 // Referências dos objetos
 var canvas = document.getElementById("screen");
 var context = canvas.getContext("2d");
-var btpausa = document.getElementById("btPause");
 var sndcomer1 = document.getElementById("comer1");
 var sndcomer2 = document.getElementById("comer2");
 var sndgameover = document.getElementById("gameover");
@@ -38,6 +38,10 @@ var laranja=document.getElementById("laranja");
 var melancia=document.getElementById("melancia");
 var fruta=coco;
 
+var playButton=document.getElementById("playButton");
+var pauseButton=document.getElementById("pauseButton");
+var gameOverPanel=document.getElementById("gameOverPanel");
+
 //Informações sobre o grid
 var gx = 0; //Número de quadros em X
 var gy = 0; //Número de quadros em Y
@@ -55,6 +59,7 @@ document.onkeydown = onKD;
 //Iniciando o jogo
 criarGrid();
 newGame();
+toggle();
 
 function criarGrid() {
 	gx = Math.floor((canvas.width - distance) / (largura + distance));
@@ -64,9 +69,10 @@ function criarGrid() {
 }
 
 function newGame() {
-	if (rodando) {
-		pause();
-	}
+	killed=false;
+
+	sndgameover.currentTime=0;
+	sndgameover.pause();
 
 	resetarPontos();
 	resetarVelocidade();
@@ -82,8 +88,12 @@ function newGame() {
 	nodos.push(new Nodo(xcenter, ycenter, down));
 	nodos.push(new Nodo(xcenter, ycenter - 1, down));
 	nodos.push(new Nodo(xcenter, ycenter - 2, down));
-	btpausa.innerHTML = "Iniciar";
-	btpausa.disabled = false;
+
+	playButton.style.display="block";
+	pauseButton.style.display="none";
+	gameOverPanel.style.display="none";
+
+	toggle();
 }
 
 function resetarPontos(){
@@ -155,15 +165,22 @@ function desenhar() {
 	}
 }	
 
-function pause() {
+function toggle() {
+	if(killed){
+		newGame();
+		return;
+	}
+
 	rodando = !rodando;
 	if (rodando) {
-		btpausa.innerHTML = "Pausar";
+		playButton.style.display="none";
+		pauseButton.style.display="block";
 		relogio = setInterval("loopPrincipal()" , (1/intervalo)*1000);
 	}
 	else {
 		clearInterval(relogio);
-		btpausa.innerHTML = "Continuar";
+		playButton.style.display="block";
+		pauseButton.style.display="none";
 	}
 }
 
@@ -251,10 +268,13 @@ function detectarColisoes() {
 }
 
 function executarGameOver() {
+	killed=true;
 	sndgameover.play();
-	btpausa.disabled = true;
-	if (rodando)
-		pause();
+	if (rodando){
+		clearInterval(relogio);
+		rodando=false;
+	}
+	gameOverPanel.style.display="block";
 }
 
 function onKD(evt) {
@@ -285,6 +305,7 @@ function sndComer() { //Reproduzir som aleatório de comer
 	//if (Math.random() < 0.8)
 	//	sndcomer1.play();
 	//else
+	sndcomer1.currentTime=0;
 	sndcomer1.play();
 }
 

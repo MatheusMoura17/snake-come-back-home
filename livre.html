@@ -7,16 +7,13 @@
 		<link href="estilo/estilo.css" rel="stylesheet"/>
 	</head>
 	<body>
-		<button onclick="window.location='index.html';" class="btn btn-back"><img class="btn-img" src="imagens/game/back.png"></button>
 		<div class="main">
 			<canvas id="screen" width="630" height="480"> Navegador não suportado! </canvas>
-			<div class="left-panel">
-				<div>Pontuação: <span id="pontos">0</span></div>
-				<div>Velocidade: <span id="velocidade">1.0</span></div>
-			</div>
 			<div class="right-buttons">
-				<button type="button" onclick="pause()" id="btPause"> Iniciar </button>
-				<button type="button" onclick="newGame()" id="btPlay"> Novo Jogo </button>
+				Velocidade: <span id="velocidade">1.0</span>
+			</div>
+			<div class="left-panel">
+				Pontuação: <span id="pontos">0</span>
 			</div>
 		</div>
 
@@ -46,6 +43,20 @@
 			<img src="imagens/frutas/coco.png" width="300" id="coco">
 			<img src="imagens/frutas/laranja.png" width="300" id="laranja">
 			<img src="imagens/frutas/melancia.png" width="300" id="melancia">
+		</div>
+
+		<button onclick="window.location='levels.html';" class="btn btn-back"><img class="btn-img" src="imagens/game/back.png"></button>
+
+		<button onclick="toggle();" style="position: absolute;left: calc(50% - 50px);top: calc(50% - 50px)" class="btn" id="playButton"><img class="btn-img" src="imagens/game/play.png"></button>
+
+		<button onclick="toggle();" style="position: absolute;right: 25px;
+	top: 25px;" class="btn" id="pauseButton"><img class="btn-img" src="imagens/game/pause.png"></button>
+
+		<div class="gameOver" id="gameOverPanel" style="display: none">
+			<img width="300" src="imagens/game/text3.png"><br />
+			<h2 style="color: #fff" id="bigPontos">Pontos: 100</h2><br />
+			<button onclick="window.location='levels.html';" class="btn" style="margin-top: 10px;"><img class="btn-img" src="imagens/game/back.png"></button>
+			<button onclick="toggle();" style="margin-left:10px;margin-top: 10px;" class="btn"><img class="btn-img" src="imagens/game/play.png"></button>
 		</div>
 
 		<script type="text/javascript" src="scripts/nodo.js"> </script>
