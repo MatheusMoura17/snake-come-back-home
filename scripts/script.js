@@ -31,6 +31,11 @@ var snakeTaleRight=document.getElementById("snakeTaleRight");
 var snakeTaleUp=document.getElementById("snakeTaleUp");
 var snakeTaleBottom=document.getElementById("snakeTaleBottom");
 
+var coco=document.getElementById("coco");
+var laranja=document.getElementById("laranja");
+var melancia=document.getElementById("melancia");
+var fruta=coco;
+
 //Informações sobre o grid
 var gx = 0; //Número de quadros em X
 var gy = 0; //Número de quadros em Y
@@ -124,29 +129,14 @@ function desenhar() {
 				graphic=snakeTaleLeft;
 		}
 
-
-		//if(i>0 && i<nodos.length-1)
-		//	graphic=snakeNode;
-		//else if(i==nodos.length-1)
-		//	graphic=snakeTale;
-
 		xi = distance + nodos[i].x * (largura + distance);
 		yi = distance + nodos[i].y * (largura + distance);
-		//context.fillRect(xi, yi, largura, largura);
 		context.drawImage(graphic,xi,yi,largura,largura);
 	
 		//Desenhar a fruta
-		context.fillStyle = "#FF0000";
 		xi = distance + (xfruta * (largura + distance)) + Math.floor(largura / 2);
 		yi = distance + (yfruta * (largura + distance)) + Math.floor(largura / 2);
-		rotacao += Math.PI * 0.1;
-		if (rotacao > Math.PI * 2)
-			rotacao -= Math.PI * 2;
-		var r = rotacao + (Math.PI * 1.5);
-		context.beginPath();
-		context.arc(xi, yi, distance, r, rotacao, true);
-		context.arc(xi, yi, distance, 0, Math.PI * 2, true);
-		context.closePath();
+		context.drawImage(fruta,xi-(largura/2),yi-(largura/2),largura,largura);
 		context.fill();
 	}
 }	
@@ -288,6 +278,13 @@ function novaPosFruta() { //Determinar uma nova posição para a fruta
 		xfruta = Math.floor(Math.random() * gx);
 		yfruta = Math.floor(Math.random() * gy);
 	} while (colisaoFruta() == true);
+
+	var rand=Math.random();
+	fruta=coco;
+	if(rand<0.4)
+		fruta=laranja;
+	else if (rand>0.6)
+		fruta=melancia;
 }
 
 function colisaoFruta() { //Verificar se posição da fruta colide com corpo da snake
