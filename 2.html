@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+	<head>
+		<title></title>
+		<meta charset="utf-8"/>
+		<link href="estilo/estilo.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<div class="main">
+			<canvas id="screen" width="630" height="480"> Navegador não suportado! </canvas>
+			<div class="right-buttons">
+				Velocidade: <span id="velocidade">1.0</span>
+			</div>
+			<div class="left-panel">
+				Pontuação: <span id="pontos">0</span> / 1500
+			</div>
+		</div>
+
+		<div class="hiddenElements">
+			<audio controls id= "comer1">
+			<source src= "snd/1.wav" type="audio/wav">
+			</audio>
+			<audio controls id= "comer2">
+			<source src= "snd/2.wav" type="audio/wav">
+			</audio>
+			<audio controls id="gameover">
+			<source src= "snd/gameover.wav" type="audio/wav">		
+			</audio>
+
+			<img src="imagens/snake/head-left.png" id="snakeHeadLeft">
+			<img src="imagens/snake/head-right.png" id="snakeHeadRight">
+			<img src="imagens/snake/head-up.png" id="snakeHeadUp">
+			<img src="imagens/snake/head-bottom.png" id="snakeHeadBottom">
+
+			<img src="imagens/snake/node.png" id="snakeNode">
+
+			<img src="imagens/snake/tale-left.png" id="snakeTaleLeft">
+			<img src="imagens/snake/tale-right.png" id="snakeTaleRight">
+			<img src="imagens/snake/tale-up.png" id="snakeTaleUp">
+			<img src="imagens/snake/tale-bottom.png" id="snakeTaleBottom">
+
+			<img src="imagens/frutas/coco.png" width="300" id="coco">
+			<img src="imagens/frutas/laranja.png" width="300" id="laranja">
+			<img src="imagens/frutas/melancia.png" width="300" id="melancia">
+
+			<img src="imagens/game/obstacle.png" width="300" id="obstaculo">
+		</div>
+
+		<button onclick="window.location='levels.html';" class="btn btn-back"><img class="btn-img" src="imagens/game/back.png"></button>
+
+		<button onclick="toggle();" style="position: absolute;left: calc(50% - 50px);top: calc(50% - 50px)" class="btn" id="playButton"><img class="btn-img" src="imagens/game/play.png"></button>
+
+		<button onclick="toggle();" style="position: absolute;right: 25px;
+	top: 25px;" class="btn" id="pauseButton"><img class="btn-img" src="imagens/game/pause.png"></button>
+
+		<div class="gameOver" id="gameWinPanel" style="display: none">
+			<img width="300" src="imagens/game/text2.png"><br />
+			<h2 style="color: #fff" id="bigPontos1">Pontos: 100</h2><br />
+			<button onclick="window.location='levels.html';" class="btn" style="margin-top: 10px;"><img class="btn-img" src="imagens/game/back.png"></button>
+			<button onclick="toggle();" style="margin-left:10px;margin-top: 10px;" class="btn"><img class="btn-img" src="imagens/game/restart.png"></button>
+			<button onclick="window.location='2.html'" style="margin-left:10px;margin-top: 10px;" class="btn"><img class="btn-img" src="imagens/game/play.png"></button>
+		</div>
+
+		<div class="gameOver" id="gameOverPanel" style="display: none">
+			<img width="300" src="imagens/game/text3.png"><br />
+			<h2 style="color: #fff" id="bigPontos2">Pontos: 100</h2><br />
+			<button onclick="window.location='levels.html';" class="btn" style="margin-top: 10px;"><img class="btn-img" src="imagens/game/back.png"></button>
+			<button onclick="toggle();" style="margin-left:10px;margin-top: 10px;" class="btn"><img class="btn-img" src="imagens/game/restart.png"></button>
+		</div>
+
+		<script type="text/javascript" src="scripts/nodo.js"> </script>
+		<script type="text/javascript" src="scripts/script-level-2.js"> </script>
+
+	</body>
+
+</html>
