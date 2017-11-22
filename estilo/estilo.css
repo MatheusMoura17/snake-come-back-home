@@ -7,6 +7,38 @@
 	border-color: #888888;
 }
 
+.btn-back{
+	position: absolute;
+	left: 25px;
+	top: 25px;
+}
+
+.btn, .btn2{
+	background: none;
+	border: none;
+}
+
+.btn-anim{
+	animation: scaleBtn 1s infinite alternate;
+	-webkit-animation:scaleBtn 1s infinite linear alternate;
+}
+
+.btn-anim:hover{
+	transform: scale(1,1);
+	animation: none;
+	-webkit-animation:none;
+}
+
+.btn, .btn-img{
+	width: 100px;
+	height: 100px;
+}
+
+.btn2, .btn-img2{
+	width: 100px;
+	height: 123px;
+}
+
 .main{
 	width: 640px;
 	height: 480px;

@@ -8,6 +8,7 @@ var proxDirec = new Array();
 proxDirec.length = 0;
 var rotacao = 0;
 var pontos=0;
+var velocidadeInicial=1;
 
 // Referências dos objetos
 var canvas = document.getElementById("screen");
@@ -18,6 +19,7 @@ var sndcomer2 = document.getElementById("comer2");
 var sndgameover = document.getElementById("gameover");
 
 var pontosTxt=document.getElementById("pontos");
+var velocidadeTxt=document.getElementById("velocidade");
 
 var snakeHeadLeft=document.getElementById("snakeHeadLeft");
 var snakeHeadRight=document.getElementById("snakeHeadRight");
@@ -67,8 +69,9 @@ function newGame() {
 	}
 
 	resetarPontos();
+	resetarVelocidade();
 	
-	intervalo = 200;
+	intervalo = velocidadeInicial;
 	novaPosFruta();
 	
 	var xcenter = Math.floor(gx / 2);
@@ -93,17 +96,28 @@ function atualizarPontos(value){
 	pontosTxt.innerHTML=pontos;
 }
 
+function resetarVelocidade(){
+	intervalo=velocidadeInicial;
+	velocidadeTxt.innerHTML=intervalo;
+}
+
+function atualizarVelocidade(value){
+	intervalo+=value;
+	if(intervalo>15){
+		intervalo=15;
+	}
+	velocidadeTxt.innerHTML=intervalo;
+
+	clearInterval(relogio);
+	relogio = setInterval("loopPrincipal()" , (1/intervalo)*1000);
+}
+
 function desenhar() {
 	//Variáveis auxiliares para desenhar
 	var xi, yi;
 	
 	//Limpar a tela
 	context.clearRect(0, 0, canvas.width, canvas.height);
-	
-	//Desenhar bordas
-	context.fillStyle = "#888888";
-	context.fillRect(bordax, 0, canvas.width - 1, canvas.height - 1);
-	context.fillRect(0, borday, canvas.width - 1, canvas.height - 1);
 	
 	//Desenhar a Snake
 	for (i = 0; i < nodos.length; i++) {
@@ -145,7 +159,7 @@ function pause() {
 	rodando = !rodando;
 	if (rodando) {
 		btpausa.innerHTML = "Pausar";
-		relogio = setInterval("loopPrincipal()" , intervalo);
+		relogio = setInterval("loopPrincipal()" , (1/intervalo)*1000);
 	}
 	else {
 		clearInterval(relogio);
@@ -209,6 +223,7 @@ function detectarColisoes() {
 	//Comer a fruta
 	if ((nodos[0].x == xfruta) && (nodos[0].y == yfruta)) {
 		atualizarPontos(100);
+		atualizarVelocidade(1);
 		sndComer();
 		var ultimo = nodos.length - 1;
 		nodos.push(new Nodo(nodos[ultimo].x, nodos[ultimo].y, nodos[ultimo].direc));

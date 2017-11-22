@@ -7,10 +7,12 @@
 		<link href="estilo/estilo.css" rel="stylesheet"/>
 	</head>
 	<body>
+		<button onclick="window.location='index.html';" class="btn btn-back"><img class="btn-img" src="imagens/game/back.png"></button>
 		<div class="main">
-			<canvas id="screen" width="640" height="480"> Navegador não suportado! </canvas>
+			<canvas id="screen" width="630" height="480"> Navegador não suportado! </canvas>
 			<div class="left-panel">
-				Pontuação: <span id="pontos">0</span>
+				<div>Pontuação: <span id="pontos">0</span></div>
+				<div>Velocidade: <span id="velocidade">1.0</span></div>
 			</div>
 			<div class="right-buttons">
 				<button type="button" onclick="pause()" id="btPause"> Iniciar </button>
