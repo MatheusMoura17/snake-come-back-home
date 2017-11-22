@@ -7,6 +7,7 @@ var intervalo;
 var proxDirec = new Array();
 proxDirec.length = 0;
 var rotacao = 0;
+var pontos=0;
 
 // Referências dos objetos
 var canvas = document.getElementById("screen");
@@ -15,6 +16,8 @@ var btpausa = document.getElementById("btPause");
 var sndcomer1 = document.getElementById("comer1");
 var sndcomer2 = document.getElementById("comer2");
 var sndgameover = document.getElementById("gameover");
+
+var pontosTxt=document.getElementById("pontos");
 
 var snakeHeadLeft=document.getElementById("snakeHeadLeft");
 var snakeHeadRight=document.getElementById("snakeHeadRight");
@@ -57,6 +60,8 @@ function newGame() {
 	if (rodando) {
 		pause();
 	}
+
+	resetarPontos();
 	
 	intervalo = 200;
 	novaPosFruta();
@@ -71,6 +76,16 @@ function newGame() {
 	nodos.push(new Nodo(xcenter, ycenter - 2, down));
 	btpausa.innerHTML = "Iniciar";
 	btpausa.disabled = false;
+}
+
+function resetarPontos(){
+	pontos=0;
+	pontosTxt.innerHTML=pontos;
+}
+
+function atualizarPontos(value){
+	pontos+=value;
+	pontosTxt.innerHTML=pontos;
 }
 
 function desenhar() {
@@ -203,6 +218,7 @@ function detectarColisoes() {
 	
 	//Comer a fruta
 	if ((nodos[0].x == xfruta) && (nodos[0].y == yfruta)) {
+		atualizarPontos(100);
 		sndComer();
 		var ultimo = nodos.length - 1;
 		nodos.push(new Nodo(nodos[ultimo].x, nodos[ultimo].y, nodos[ultimo].direc));
