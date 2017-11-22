@@ -87,11 +87,9 @@ function newGame() {
 	var xcenter = Math.floor(gx / 2);
 	var ycenter = Math.floor(gy / 2);
 	nodos.length = 0;
-	nodos.push(new Nodo(xcenter, ycenter + 2, down));
 	nodos.push(new Nodo(xcenter, ycenter + 1, down));
 	nodos.push(new Nodo(xcenter, ycenter, down));
 	nodos.push(new Nodo(xcenter, ycenter - 1, down));
-	nodos.push(new Nodo(xcenter, ycenter - 2, down));
 
 	playButton.style.display="block";
 	pauseButton.style.display="none";
@@ -282,8 +280,8 @@ function executarGameOver() {
 		clearInterval(relogio);
 		rodando=false;
 	}
-	bigPontosTxt1.innerHTML="Pontos: "+pontos;
-	bigPontosTxt2.innerHTML="Pontos: "+pontos;
+	bigPontosTxt1.innerHTML="Pontos: "+pontos+" / "+pontosParaVencer;
+	bigPontosTxt2.innerHTML="Pontos: "+pontos+" / "+pontosParaVencer;
 	gameOverPanel.style.display="block";
 }
 
@@ -293,8 +291,8 @@ function executarGameWin() {
 		clearInterval(relogio);
 		rodando=false;
 	}
-	bigPontosTxt1.innerHTML="Pontos: "+pontos;
-	bigPontosTxt2.innerHTML="Pontos: "+pontos;
+	bigPontosTxt1.innerHTML="Pontos: "+pontos+" / "+pontosParaVencer;
+	bigPontosTxt2.innerHTML="Pontos: "+pontos+" / "+pontosParaVencer;
 	gameWinPanel.style.display="block";
 }
 
