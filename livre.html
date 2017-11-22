@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+	<head>
+		<title></title>
+		<meta charset="utf-8"/>
+		<link href="estilo/estilo.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<div class="main">
+			<canvas id="screen" width="640" height="480"> Navegador não suportado! </canvas>
+			<div class="left-panel">
+				Pontuação: <span id="pontos">0</span>
+			</div>
+			<div class="right-buttons">
+				<button type="button" onclick="pause()" id="btPause"> Iniciar </button>
+				<button type="button" onclick="newGame()" id="btPlay"> Novo Jogo </button>
+			</div>
+		</div>
+
+		<div class="hiddenElements">
+			<audio controls id= "comer1">
+			<source src= "snd/1.wav" type="audio/wav">
+			</audio>
+			<audio controls id= "comer2">
+			<source src= "snd/2.wav" type="audio/wav">
+			</audio>
+			<audio controls id="gameover">
+			<source src= "snd/gameover.wav" type="audio/wav">		
+			</audio>
+
+			<img src="imagens/snake/head-left.png" id="snakeHeadLeft">
+			<img src="imagens/snake/head-right.png" id="snakeHeadRight">
+			<img src="imagens/snake/head-up.png" id="snakeHeadUp">
+			<img src="imagens/snake/head-bottom.png" id="snakeHeadBottom">
+
+			<img src="imagens/snake/node.png" id="snakeNode">
+
+			<img src="imagens/snake/tale-left.png" id="snakeTaleLeft">
+			<img src="imagens/snake/tale-right.png" id="snakeTaleRight">
+			<img src="imagens/snake/tale-up.png" id="snakeTaleUp">
+			<img src="imagens/snake/tale-bottom.png" id="snakeTaleBottom">
+
+			<img src="imagens/frutas/coco.png" width="300" id="coco">
+			<img src="imagens/frutas/laranja.png" width="300" id="laranja">
+			<img src="imagens/frutas/melancia.png" width="300" id="melancia">
+		</div>
+
+		<script type="text/javascript" src="scripts/nodo.js"> </script>
+		<script type="text/javascript" src="scripts/script.js"> </script>
+
+	</body>
+
+</html>
